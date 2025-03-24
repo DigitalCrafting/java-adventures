@@ -31,4 +31,23 @@ export class KeycloakClient {
         console.dir(body);
     }
 
+    static async getAccessTokenUsingPasswordGrant(clientId: string, clientSecret: string, username: string, password: string) {
+        const url = 'http://localhost:8080/realms/apps-developer/protocol/openid-connect/token';
+        const resp = await fetch(url, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: new URLSearchParams({
+                grant_type: "password",
+                client_id: clientId,
+                client_secret: clientSecret,
+                username,
+                password,
+            })
+        });
+        const body = await resp.json();
+        console.log(body)
+    }
+
 }
