@@ -1,6 +1,7 @@
 import {describe, it} from "vitest";
 import {KeycloakClient} from "./keycloak.client";
 import {env} from "node:process";
+import {TestResourceServerClient} from "./test-resource-server.client";
 
 describe("Call to keycloak", () => {
     it ("should run getGrant", () => {
@@ -12,6 +13,7 @@ describe("Call to keycloak", () => {
     })
 
     it("should run getAccessTokenUsingPasswordGrant", async () => {
-        await KeycloakClient.getAccessTokenUsingPasswordGrant(env.TEST_CLIENT_ID, env.TEST_CLIENT_SECRET, env.TEST_USERNAME, env.TEST_USER_PASS);
+        const token = await KeycloakClient.getAccessTokenUsingPasswordGrant(env.TEST_CLIENT_ID, env.TEST_CLIENT_SECRET, env.TEST_USERNAME, env.TEST_USER_PASS);
+        await TestResourceServerClient.get(token);
     })
 })

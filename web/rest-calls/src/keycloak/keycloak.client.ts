@@ -47,7 +47,7 @@ export class KeycloakClient {
             })
         });
         const body = await resp.json();
-        console.log(body)
+        return body.access_token;
     }
 
 }

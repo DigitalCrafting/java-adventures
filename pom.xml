@@ -1,0 +1,12 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <version>0.0.1-SNAPSHOT</version>
+    <groupId>org.digitalcrafting.javaadventures</groupId>
+    <artifactId>java-adventures-root</artifactId>
+    <packaging>pom</packaging>
+    <!--
+        This is a dummy pom file, link it in IntelliJ so that the whole project structure doesn't collapse
+        when you import one of nested pom.xml projects.
+     -->
+</project>
