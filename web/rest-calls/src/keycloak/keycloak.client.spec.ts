@@ -12,8 +12,13 @@ describe("Call to keycloak", () => {
         await KeycloakClient.exchangeForAccessToken(env.TEST_CLIENT_ID, env.TEST_CLIENT_SECRET, "")
     })
 
-    it("should run getAccessTokenUsingPasswordGrant", async () => {
+    it("should call userStatusCheck endpoint", async () => {
         const token = await KeycloakClient.getAccessTokenUsingPasswordGrant(env.TEST_CLIENT_ID, env.TEST_CLIENT_SECRET, env.TEST_USERNAME, env.TEST_USER_PASS);
-        await TestResourceServerClient.get(token);
+        await TestResourceServerClient.callUserStatusCheck(token);
+    })
+
+    it("should call token endpoint", async () => {
+        const token = await KeycloakClient.getAccessTokenUsingPasswordGrant(env.TEST_CLIENT_ID, env.TEST_CLIENT_SECRET, env.TEST_USERNAME, env.TEST_USER_PASS);
+        await TestResourceServerClient.callToken(token);
     })
 })
