@@ -4,7 +4,7 @@ import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveTask;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class ForkJoinPoolTest {
+public class ForkJoinPoolExample {
     static class SumTask extends RecursiveTask<Long> {
         private static final int THRESHOLD = 10_000;
         private final int[] array;
